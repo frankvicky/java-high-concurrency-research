@@ -1,4 +1,4 @@
-package frankvicky.cc;
+package frankvicky.cc.blockingio;
 
 import java.io.IOException;
 import java.net.ServerSocket;
