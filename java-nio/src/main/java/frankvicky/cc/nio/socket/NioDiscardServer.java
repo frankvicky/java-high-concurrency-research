@@ -46,13 +46,18 @@ public class NioDiscardServer {
                     // ServerSocketChannel 只支援 Accept 事件，因此讀就緒事件必然是由 SocketChannel 發送
                     SocketChannel socketChannel = (SocketChannel) selectedKey.channel();
                     ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
-                    int length = 0;
 
+                    int length = 0;
                     // 從 socketChannel 讀取資料然後寫入 byteBuffer
                     while (((length = socketChannel.read(byteBuffer))) > 0) {
                         // 切換為讀模式
                         byteBuffer.flip();
-                        logger.info(new String(byteBuffer.array()), 0, length);
+
+                        // 建立一個與讀取到資料長度相同的 byte 陣列
+                        byte[] bytes = new byte[length];
+                        // 將讀取到資料從 byteBuffer 取出，寫入 byte 陣列
+                        byteBuffer.get(bytes, 0, length);
+                        logger.info(new String(bytes), 0, length);
                         // 清空 buffer 並翻轉為寫模式，為下次寫入做準備
                         byteBuffer.clear();
                     }
