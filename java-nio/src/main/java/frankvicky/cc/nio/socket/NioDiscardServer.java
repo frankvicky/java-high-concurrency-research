@@ -57,7 +57,7 @@ public class NioDiscardServer {
                         byte[] bytes = new byte[length];
                         // 將讀取到資料從 byteBuffer 取出，寫入 byte 陣列
                         byteBuffer.get(bytes, 0, length);
-                        logger.info(new String(bytes), 0, length);
+                        logger.info(new String(bytes, 0, length));
                         // 清空 buffer 並翻轉為寫模式，為下次寫入做準備
                         byteBuffer.clear();
                     }
