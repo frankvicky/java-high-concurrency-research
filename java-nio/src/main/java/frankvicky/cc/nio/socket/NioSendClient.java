@@ -35,7 +35,7 @@ public class NioSendClient {
             socketChannel.setOption(StandardSocketOptions.TCP_NODELAY, true);
             // 根據Java的NIO文檔，configureBlocking(false)設置該通道為非阻塞模式，應該在connect()或finishConnect()之後進行設置。
             // 這是因為，若在呼叫connect()方法之前設置非阻塞，那麼connect()方法可能在連接完成之前就返回，而這不是期望的行為。
-            socketChannel.socket().connect(new InetSocketAddress("127.0.0.1", 8787));
+            socketChannel.socket().connect(new InetSocketAddress("127.0.0.1", 18787));
             socketChannel.configureBlocking(false); // 將 socketChannel 設置為 non-blocking 模式
 
             logger.debug("Attempt to connect server");
