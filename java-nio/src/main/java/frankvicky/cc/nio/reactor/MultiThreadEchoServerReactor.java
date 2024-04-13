@@ -21,6 +21,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 // 當有 SocketChannel 連線進來，就會去執行 bossReactor 的 run，裡面會 dispatch 被觸發的 IO 就緒事件
 // 這個當下只有 OP_ACCEPT ，所以會呼叫 AcceptHandler 的 run 方法，裡面會透過呼叫 MultiThreadEchoHandler 的建構子建立這個類別的實例
 // 也會把 SocketChannel  建立，並把這個 SocketChannel 和  OP_READ 和 OP_WRITE 註冊給指定編號的 Selector（兩個 workSelector 其中之一）。
+// 至此 workReactor 的輪詢開始有意義，因為 workReactor 聚合的 workSelector 被註冊了 Channel 和 IO 就緒事件
 class MultiThreadEchoServerReactor {
     private static final Logger logger = LoggerFactory.getLogger(MultiThreadEchoServerReactor.class);
     ServerSocketChannel serverSocketChannel;
