@@ -16,6 +16,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 // MultiThreadEchoServerReactor  裡面一開始先註冊 bossSelector （這裡專門用於處理 Accept 事件），然後附加 AcceptHandler 作為處理者。
 // 此時 Selector 只有註冊一個通道和一種事件（ServerSocketChannel 和 OP_ACCEPT）。
+// (其他 workSelectors 沒有註冊任何 Channel 和事件)
 
 // 當有 SocketChannel 連線進來，就會去執行 bossReactor 的 run，裡面會 dispatch 被觸發的 IO 就緒事件
 // 這個當下只有 OP_ACCEPT ，所以會呼叫 AcceptHandler 的 run 方法，裡面會透過呼叫 MultiThreadEchoHandler 的建構子建立這個類別的實例
