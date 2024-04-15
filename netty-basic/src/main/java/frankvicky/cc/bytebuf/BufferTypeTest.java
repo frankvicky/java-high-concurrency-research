@@ -1,4 +1,4 @@
-package frankvicky.cc.pipeline;
+package frankvicky.cc.bytebuf;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufAllocator;
