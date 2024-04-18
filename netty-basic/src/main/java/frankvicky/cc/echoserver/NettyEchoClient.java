@@ -104,7 +104,7 @@ public class NettyEchoClient {
 
                  ChannelFuture writeAndFlushFuture = channel.writeAndFlush(buffer);
                 writeAndFlushFuture.addListener(genericFutureListener);
-                logger.info("请输入发送内容:");
+                logger.info("Please input message: ");
 
             }
         } catch (Exception e) {
