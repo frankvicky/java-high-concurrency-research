@@ -41,6 +41,8 @@ public class BufferTypeTest {
         if (!directBuf.hasArray()) {
             int length = directBuf.readableBytes();
             byte[] array = new byte[length];
+            // Java 不能直接訪問 Direct ByteBuf 內部的數據
+            // 必須先通過 getBytes、readBytes等方法，將數據讀入Java數組中，然後才能繼續在數組中進行處理。
             // 從 Direct Buffer 讀取資料到 Heap Memory
             directBuf.getBytes(directBuf.readerIndex(), array);
             logger.info(new String(array, UTF_8));
