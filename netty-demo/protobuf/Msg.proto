@@ -1,0 +1,24 @@
+// Start Declaration
+syntax = "proto3";
+// Define namespace of protobuf package
+package frankvicky.cc.protocol;
+// End Declaration
+
+// Java Option Config
+option java_package = "frankvicky.cc.protocol";
+option java_outer_classname = "MsgProtos";
+
+
+// Message Definition
+message Msg {
+  uint32 id = 1;  // Unique ID number for this person.
+  string content = 2;
+}
+message Msg2 {
+  uint32 id = 1;  // Unique ID number for this person.
+  string content = 2;
+}
+message Msg3 {
+  uint32 id = 1;  // Unique ID number for this person.
+  string content = 2;
+}
