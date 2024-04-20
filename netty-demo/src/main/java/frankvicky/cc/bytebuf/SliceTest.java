@@ -33,6 +33,9 @@ public class SliceTest {
 
         ByteBuf slice1 = buffer.slice();
         logger.info("Action: Slice slice1, {}", slice1);
+        byte[] dst1 = new byte[3];
+        slice1.readBytes(dst1);
+        System.out.println("dst1 = " + Arrays.toString(dst1));
 
         buffer.retain();
         logger.info("4.0 refCnt(): " + buffer.refCnt());

@@ -6,9 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="netty-http" />
         <module name="netty-demo" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="17" />
+    <bytecodeTargetLevel target="17">
+      <module name="chat-client" target="17" />
+      <module name="chat-common" target="17" />
+      <module name="simple-instant-messaging" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>

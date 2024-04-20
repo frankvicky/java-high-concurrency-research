@@ -77,15 +77,11 @@ public class NettyEchoClient {
             Scanner scanner = new Scanner(System.in);
             logger.info("Please enter your message:");
 
-            GenericFutureListener genericFutureListener = new GenericFutureListener() {
-
-                @Override
-                public void operationComplete(Future future) throws Exception {
-                    if (future.isSuccess()) {
-                        logger.info("Message sent");
-                    } else {
-                        logger.info("Message send failed");
-                    }
+            GenericFutureListener genericFutureListener = future -> {
+                if (future.isSuccess()) {
+                    logger.info("Message sent");
+                } else {
+                    logger.info("Message send failed");
                 }
             };
 
